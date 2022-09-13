@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Asp.NetCoreFromScratch;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,8 +22,8 @@ using Microsoft.Extensions.Logging;
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-        services.AddControllers();
-
+            services.AddControllers();
+            services.AddTransient<CustomMiddleware1>();
 
         }
 
@@ -41,26 +42,27 @@ using Microsoft.Extensions.Logging;
              //    await context.Response.WriteAsync("Hello from Run");
              //});
 
-             app.Use(async (context, next) =>
-             {
-                 await context.Response.WriteAsync("Hello from Use-1 1 \n");
+            // app.Use(async (context, next) =>
+            // {
+            //     await context.Response.WriteAsync("Hello from Use-1 1 \n");
 
-                 await next();
+            //     await next();
 
-                 await context.Response.WriteAsync("Hello from Use-1 2 \n");
-             });
+            //     await context.Response.WriteAsync("Hello from Use-1 2 \n");
+            // });
 
-            app.Map("/kk", CutomCode);
+            //app.Map("/kk", CutomCode);
 
-            app.Run(async context =>
-             {
-                 await context.Response.WriteAsync("Hello from Run \n");
-             });
+            //app.Run(async context =>
+            // {
+            //     await context.Response.WriteAsync("Hello from Run \n");
+            // });
+
+            app.UseMiddleware<CustomMiddleware1>();
 
 
 
-
-            if (env.IsDevelopment())
+        if (env.IsDevelopment())
             { 
                 app.UseDeveloperExceptionPage();
             }
