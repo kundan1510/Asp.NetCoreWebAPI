@@ -58,7 +58,7 @@ using Microsoft.Extensions.Logging;
             //     await context.Response.WriteAsync("Hello from Run \n");
             // });
 
-            app.UseMiddleware<CustomMiddleware1>();
+            //app.UseMiddleware<CustomMiddleware1>();
 
 
 
