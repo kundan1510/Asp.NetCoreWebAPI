@@ -50,7 +50,9 @@ using Microsoft.Extensions.Logging;
                  await context.Response.WriteAsync("Hello from Use-1 2 \n");
              });
 
-             app.Run(async context =>
+            app.Map("/kk", CutomCode);
+
+            app.Run(async context =>
              {
                  await context.Response.WriteAsync("Hello from Run \n");
              });
@@ -58,7 +60,7 @@ using Microsoft.Extensions.Logging;
 
 
 
-        if (env.IsDevelopment())
+            if (env.IsDevelopment())
             { 
                 app.UseDeveloperExceptionPage();
             }
@@ -73,5 +75,12 @@ using Microsoft.Extensions.Logging;
                 });
                    
             });
+        }
+
+        private void CutomCode(IApplicationBuilder app)
+        {
+                app.Run(async context => {
+                    await context.Response.WriteAsync("Hello from kk \n");
+                });
         }
     }
