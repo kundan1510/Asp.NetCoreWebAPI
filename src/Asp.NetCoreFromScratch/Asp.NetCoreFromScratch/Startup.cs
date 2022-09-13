@@ -33,7 +33,32 @@ using Microsoft.Extensions.Logging;
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+
+
+
+             //app.Run(async context =>
+             //{
+             //    await context.Response.WriteAsync("Hello from Run");
+             //});
+
+             app.Use(async (context, next) =>
+             {
+                 await context.Response.WriteAsync("Hello from Use-1 1 \n");
+
+                 await next();
+
+                 await context.Response.WriteAsync("Hello from Use-1 2 \n");
+             });
+
+             app.Run(async context =>
+             {
+                 await context.Response.WriteAsync("Hello from Run \n");
+             });
+
+
+
+
+        if (env.IsDevelopment())
             { 
                 app.UseDeveloperExceptionPage();
             }
