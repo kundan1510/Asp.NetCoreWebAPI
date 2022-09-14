@@ -5,9 +5,10 @@ namespace Asp.NetCoreFromScratch.Controllers
 {
     //[Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]/[action]")]
     public class ValuesController : ControllerBase
     {
-        //[Route("~/api/get-all")]
+        [Route("~/api/get-all")]
         [Route("get-all")]
         [Route("getall")]
         [Route("[controller]/[action]")]
