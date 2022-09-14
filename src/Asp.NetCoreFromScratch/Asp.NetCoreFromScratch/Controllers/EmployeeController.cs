@@ -32,11 +32,11 @@ namespace Asp.NetCoreFromScratch.Controllers
             return new EmployeeModel() { Id = 1, Name = "Employee 1" };
         }
 
-        //[HttpGet("name")]
-        //public IActionResult GetName([FromServices] IProductRepository _productRepository)
-        //{
-        //    var name = _productRepository.GetName();
-        //    return Ok(name);
-        //}
+        [HttpGet("name")]
+        public IActionResult GetName([FromServices] IProductRepository _productRepository)
+        {
+            var name = _productRepository.GetName();
+            return Ok(name);
+        }
     }
 }
