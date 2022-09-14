@@ -35,5 +35,10 @@ namespace Asp.NetCoreFromScratch.Controllers
             return "hello author address " + id + " " + authorId;
         }
 
+        [Route("search")]
+        public string SeacrhBooks(int id, int authorId, string name, int rating, int price)
+        {
+            return "hello from search";
+        }
     }
 }
