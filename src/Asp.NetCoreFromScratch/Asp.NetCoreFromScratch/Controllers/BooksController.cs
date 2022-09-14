@@ -17,5 +17,11 @@ namespace Asp.NetCoreFromScratch.Controllers
         {
             return "hello string " + id;
         }
+
+        [Route("{id:regex(a(b|c))}")]
+        public string GetByIdRegex(string id)
+        {
+            return "hello regex " + id;
+        }
     }
 }
