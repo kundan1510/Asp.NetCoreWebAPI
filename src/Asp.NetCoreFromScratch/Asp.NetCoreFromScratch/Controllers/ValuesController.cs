@@ -10,6 +10,7 @@ namespace Asp.NetCoreFromScratch.Controllers
         //[Route("~/api/get-all")]
         [Route("get-all")]
         [Route("getall")]
+        [Route("[controller]/[action]")]
         public string GetAll()
         {
             return "hello from get all";
