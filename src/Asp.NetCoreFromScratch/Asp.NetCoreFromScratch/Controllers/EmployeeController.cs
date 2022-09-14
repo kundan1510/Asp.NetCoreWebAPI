@@ -21,16 +21,16 @@ namespace Asp.NetCoreFromScratch.Controllers
             ;
         }
 
-        //[Route("{id}/basic")]
-        //public ActionResult<EmployeeModel> GetEmployeeBasicDetails(int id)
-        //{
-        //    if (id == 0)
-        //    {
-        //        return NotFound();
-        //    }
+        [Route("{id}/basic")]
+        public ActionResult<EmployeeModel> GetEmployeeBasicDetails(int id)
+        {
+            if (id == 0)
+            {
+                return NotFound();
+            }
 
-        //    return new EmployeeModel() { Id = 1, Name = "Employee 1" };
-        //}
+            return new EmployeeModel() { Id = 1, Name = "Employee 1" };
+        }
 
         //[HttpGet("name")]
         //public IActionResult GetName([FromServices] IProductRepository _productRepository)
