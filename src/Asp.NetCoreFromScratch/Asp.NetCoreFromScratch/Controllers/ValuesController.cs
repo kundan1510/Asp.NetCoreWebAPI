@@ -22,5 +22,18 @@ namespace Asp.NetCoreFromScratch.Controllers
             return "hello from get all authors";
         }
 
+        [Route("books/{id}")]
+        //[Route("{id}")]
+        public string GetById(int id)
+        {
+            return "hello " + id;
+        }
+
+        [Route("books/{id}/author/{authorId}")]
+        public string GetAuthorAddressById(int id, int authorId)
+        {
+            return "hello author address " + id + " " + authorId;
+        }
+
     }
 }
