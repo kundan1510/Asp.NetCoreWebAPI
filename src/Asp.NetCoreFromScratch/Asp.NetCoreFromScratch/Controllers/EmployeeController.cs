@@ -32,11 +32,25 @@ namespace Asp.NetCoreFromScratch.Controllers
             return new EmployeeModel() { Id = 1, Name = "Employee 1" };
         }
 
-        [HttpGet("name")]
-        public IActionResult GetName([FromServices] IProductRepository _productRepository)
+       
+        [Route("{id}")]
+        public IActionResult GetName(int id)
         {
-            var name = _productRepository.GetName();
-            return Ok(name);
+            if (id == 0)
+            {
+                return NotFound();
+            }
+            return Ok( new List<EmployeeModel>() {
+                new EmployeeModel() { Id = 1, Name = "Employee 1" },
+                new EmployeeModel() { Id = 2, Name = "Employee 2"}});
         }
+
+
+        //[HttpGet("name")]
+        //public IActionResult GetName([FromServices] IProductRepository _productRepository)
+        //{
+        //    var name = _productRepository.GetName();
+        //    return Ok(name);
+        //}
     }
 }
