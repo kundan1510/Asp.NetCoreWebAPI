@@ -1,5 +1,6 @@
 ﻿using BookStoreApi.Data;
 using BookStoreApi.Model;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookStoreApi.Repository
@@ -80,24 +81,23 @@ namespace BookStoreApi.Repository
                     await _context.SaveChangesAsync();
                 }
 
-        //    public async Task UpdateBookPatchAsync(int bookId, JsonPatchDocument bookModel)
-        //    {
-        //        var book = await _context.Books.FindAsync(bookId);
-        //        if (book != null)
-        //        {
-        //            bookModel.ApplyTo(book);
-        //            await _context.SaveChangesAsync();
-        //        }
-        //    }
+                public async Task UpdateBookPatchAsync(int bookId, JsonPatchDocument bookModel)
+                {
+                    var book = await _context.Books.FindAsync(bookId);
+                    if (book != null)
+                    {
+                        bookModel.ApplyTo(book);
+                        await _context.SaveChangesAsync();
+                    }
+                }
 
-        //    public async Task DeleteBookAsync(int bookId)
-        //    {
-        //        var book = new Books() { Id = bookId };
+                //public async Task DeleteBookAsync(int bookId)
+                //{
+                //    var book = new Books() { Id = bookId };
 
-        //        _context.Books.Remove(book);
+                //    _context.Books.Remove(book);
 
-        //        await _context.SaveChangesAsync();
-        //    }
-        //}
-    }
+                //    await _context.SaveChangesAsync();
+                //}
+        }
 }
