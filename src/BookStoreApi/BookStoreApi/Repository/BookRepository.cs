@@ -44,19 +44,19 @@ namespace BookStoreApi.Repository
                  }
 
 
-        //    public async Task<int> AddBookAsync(BookModel bookModel)
-        //    {
-        //        var book = new Books()
-        //        {
-        //            Title = bookModel.Title,
-        //            Description = bookModel.Description
-        //        };
+                public async Task<int> AddBookAsync(BookModel bookModel)
+                {
+                    var book = new Books()
+                    {
+                        Title = bookModel.Title,
+                        Description = bookModel.Description
+                    };
 
-        //        _context.Books.Add(book);
-        //        await _context.SaveChangesAsync();
+                    _context.Books.Add(book);
+                    await _context.SaveChangesAsync();
 
-        //        return book.Id;
-        //    }
+                    return book.Id;
+                }
 
         //    public async Task UpdateBookAsync(int bookId, BookModel bookModel)
         //    {
