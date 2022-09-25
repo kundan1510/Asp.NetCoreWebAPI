@@ -1,22 +1,32 @@
-﻿namespace BookStoreApi.Repository
+﻿using BookStoreApi.Data;
+using BookStoreApi.Model;
+using Microsoft.EntityFrameworkCore;
+
+namespace BookStoreApi.Repository
 {
    
         public class BookRepository : IBookRepository
         {
-        //    private readonly BookStoreContext _context;
-        //    private readonly IMapper _mapper;
+                private readonly BookStoreContext _context;
+                //private readonly IMapper _mapper;
 
-        //    public BookRepository(BookStoreContext context, IMapper mapper)
-        //    {
-        //        _context = context;
-        //        _mapper = mapper;
-        //    }
+                public BookRepository(BookStoreContext context)//, IMapper mapper)
+                {
+                    _context = context;
+                    //_mapper = mapper;
+                }
 
-        //    public async Task<List<BookModel>> GetAllBooksAsync()
-        //    {
-        //        var records = await _context.Books.ToListAsync();
-        //        return _mapper.Map<List<BookModel>>(records);
-        //    }
+                public async Task<List<BookModel>> GetAllBooksAsync()
+                {
+                    var records = await _context.Books.Select(x => new BookModel()
+                    { 
+                        Id = x.Id,
+                        Title = x.Title,
+                        Description = x.Description
+                    }).ToListAsync();
+                    return records;
+                    //return _mapper.Map<List<BookModel>>(records);
+                }
 
         //    public async Task<BookModel> GetBookByIdAsync(int bookId)
         //    {
