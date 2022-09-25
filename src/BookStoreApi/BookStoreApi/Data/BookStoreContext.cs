@@ -8,5 +8,11 @@ namespace BookStoreApi.Data
         { }
 
         public DbSet<Books> Books { get; set; }
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("server=.;database=BookStoreApi;integrated Security=true;");
+        //    base.OnConfiguring(optionsBuilder);
+        //}
     }
 }

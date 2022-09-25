@@ -1,4 +1,6 @@
+using BookStoreApi.Data;
 using BookStoreApi.Repository;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IBookRepository, BookRepository>();
+//builder.Services.AddDbContext<BookStoreContext>();
+
+builder.Services.AddDbContext<BookStoreContext>(options => 
+{
+    options.UseSqlServer("server=.;database=BookStoreApi;integrated Security=true;");
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
