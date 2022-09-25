@@ -28,20 +28,21 @@ namespace BookStoreApi.Repository
                     //return _mapper.Map<List<BookModel>>(records);
                 }
 
-        //    public async Task<BookModel> GetBookByIdAsync(int bookId)
-        //    {
-        //        //var records = await _context.Books.Where(x => x.Id == bookId).Select(x => new BookModel()
-        //        //{
-        //        //    Id = x.Id,
-        //        //    Title = x.Title,
-        //        //    Description = x.Description
-        //        //}).FirstOrDefaultAsync();
+                 public async Task<BookModel> GetBookByIdAsync(int bookId)
+                 {
+                    var records = await _context.Books.Where(x => x.Id == bookId).Select(x => new BookModel()
+                    {
+                        Id = x.Id,
+                        Title = x.Title,
+                        Description = x.Description
+                    }).FirstOrDefaultAsync();
 
-        //        //return records;
+                    return records;
 
-        //        var book = await _context.Books.FindAsync(bookId);
-        //        return _mapper.Map<BookModel>(book);
-        //    }
+                    //var book = await _context.Books.FindAsync(bookId);
+                    //return _mapper.Map<BookModel>(book);
+                 }
+
 
         //    public async Task<int> AddBookAsync(BookModel bookModel)
         //    {
