@@ -58,27 +58,27 @@ namespace BookStoreApi.Repository
                     return book.Id;
                 }
 
-        //    public async Task UpdateBookAsync(int bookId, BookModel bookModel)
-        //    {
-        //        //var book = await _context.Books.FindAsync(bookId);
-        //        //if (book != null)
-        //        //{
-        //        //    book.Title = bookModel.Title;
-        //        //    book.Description = bookModel.Description;
+                public async Task UpdateBookAsync(int bookId, BookModel bookModel)
+                {
+                    var book = await _context.Books.FindAsync(bookId);
+                    if (book != null)
+                    {
+                        book.Title = bookModel.Title;
+                        book.Description = bookModel.Description;
 
-        //        //    await _context.SaveChangesAsync();
-        //        //}
+                        await _context.SaveChangesAsync();
+                    }
 
-        //        var book = new Books()
-        //        {
-        //            Id = bookId,
-        //            Title = bookModel.Title,
-        //            Description = bookModel.Description
-        //        };
+                    //var book = new Books()
+                    //{
+                    //    Id = bookId,
+                    //    Title = bookModel.Title,
+                    //    Description = bookModel.Description
+                    //};
 
-        //        _context.Books.Update(book);
-        //        await _context.SaveChangesAsync();
-        //    }
+                    //_context.Books.Update(book);
+                    //await _context.SaveChangesAsync();
+                }
 
         //    public async Task UpdateBookPatchAsync(int bookId, JsonPatchDocument bookModel)
         //    {
