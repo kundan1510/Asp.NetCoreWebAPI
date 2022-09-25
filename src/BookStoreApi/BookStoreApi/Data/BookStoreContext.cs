@@ -6,5 +6,7 @@ namespace BookStoreApi.Data
     {
         public BookStoreContext(DbContextOptions<BookStoreContext> options) : base(options)
         { }
+
+        public DbSet<Books> Books { get; set; }
     }
 }
