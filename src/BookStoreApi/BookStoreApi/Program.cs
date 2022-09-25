@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -15,7 +16,7 @@ builder.Services.AddTransient<IBookRepository, BookRepository>();
 
 builder.Services.AddDbContext<BookStoreContext>(options => 
 {
-    options.UseSqlServer("server=.;database=BookStoreApi;integrated Security=true;");
+    options.UseSqlServer(builder.Configuration.GetConnectionString("BookSoreDb"));
 });
 
 var app = builder.Build();
