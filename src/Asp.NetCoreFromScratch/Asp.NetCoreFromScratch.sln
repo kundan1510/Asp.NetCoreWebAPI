@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asp.NetCoreFromScratch", "Asp.NetCoreFromScratch\Asp.NetCoreFromScratch.csproj", "{E0F1F10D-A92A-45E1-AB7B-73D3428AF36B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asp.NetCoreFromScratch", "Asp.NetCoreFromScratch\Asp.NetCoreFromScratch.csproj", "{E0F1F10D-A92A-45E1-AB7B-73D3428AF36B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStoreApi", "..\BookStoreApi\BookStoreApi\BookStoreApi.csproj", "{B57710D0-6FF7-43A3-9E20-D6B20D0182B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{E0F1F10D-A92A-45E1-AB7B-73D3428AF36B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0F1F10D-A92A-45E1-AB7B-73D3428AF36B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0F1F10D-A92A-45E1-AB7B-73D3428AF36B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B57710D0-6FF7-43A3-9E20-D6B20D0182B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B57710D0-6FF7-43A3-9E20-D6B20D0182B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B57710D0-6FF7-43A3-9E20-D6B20D0182B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B57710D0-6FF7-43A3-9E20-D6B20D0182B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
